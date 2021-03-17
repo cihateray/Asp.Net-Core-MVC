@@ -1,0 +1,22 @@
+﻿@model proje3.Data.Models.Category
+@{
+    ViewData["Title"] = "CategoryGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category Add Page</h1>
+<br />
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    @Html.Label("Category Id")
+    @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("Category Name")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", @required = "required" })
+    @Html.ValidationMessageFor(x => x.CategoryName, "", new { @style = "color:red" })
+    <br />
+    @Html.Label("Category Description")
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control", @required = "required" })
+    <br />
+    <button class="btn btn-success">Save</button>
+}

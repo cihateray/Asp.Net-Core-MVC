@@ -1,0 +1,31 @@
+﻿@model List<proje3.Data.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Category Name</th>
+        <th>Category Description</th>
+        <th>Category Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.CategoryId</td>
+            <td>@x.CategoryName</td>
+            <td>@x.CategoryDescription</td>
+            <td>@x.CategoryStatus</td>
+            <td><a href="/Category/CategoryDelete/@x.CategoryId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Category/CategoryGet/@x.CategoryId" class="btn btn-info">Update</a></td>
+        </tr>
+    }
+</table>
+<a href="/Category/CategoryAdd" class="btn btn-success">New Category</a>
+
