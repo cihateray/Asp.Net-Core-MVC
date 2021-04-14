@@ -3,6 +3,7 @@ using proje3.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace proje3.Repositories
@@ -36,6 +37,11 @@ namespace proje3.Repositories
 		public List<T> TList(string p)
 		{
 			return c.Set<T>().Include(p).ToList();
+		}
+
+		public List<T> List(Expression<Func<T, bool>> filter)
+		{
+			return c.Set<T>().Where(filter).ToList();	
 		}
 	}
 }

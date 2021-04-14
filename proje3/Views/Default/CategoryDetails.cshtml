@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <title>Kategori Detay</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </button>
                 </div>
                 @await Component.InvokeAsync("CategoryGet")
-            </nav>  
+            </nav>
         </div>
         <div class="w3l_banner_nav_right">
             <section class="slider">
@@ -184,16 +184,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="clearfix"></div>
     </div>
-    <!-- banner -->
     <!-- top-brands -->
     <div class="top-brands">
         <div class="container">
             <h3>Ürünlerimiz</h3>
-            @await Component.InvokeAsync("FoodGet")
-            @RenderBody()
+            @await Component.InvokeAsync("FoodListByCategory",new {id=ViewBag.id })
+
         </div>
     </div>
-    <!-- //footer -->
     <!-- Bootstrap Core JavaScript -->
     <script src="~/web/js/bootstrap.min.js"></script>
     <script>
